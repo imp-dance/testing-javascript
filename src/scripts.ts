@@ -1,3 +1,3 @@
-export function add(a: number, b: number): number {
-  return a + b;
+export function add(...rest: number[]): number {
+  return rest.reduce((a, b) => a + b);
 }
