@@ -1,7 +1,13 @@
 {
   "include": ["./src"],
   "compilerOptions": {
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "module": "ES6",
+    "moduleResolution": "node",
+    "target": "es5",
     "baseUrl": "./src",
-    "noEmit": true
+    "allowJs": true,
+    "jsx": "react"
   }
 }

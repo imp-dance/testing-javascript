@@ -2,20 +2,24 @@
   "name": "jest-testing",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/src/index.js",
   "scripts": {
-    "build": "babel src --extensions .js,.ts,.tsx --out-dir dist",
+    "babelify": "babel src --extensions .js,.ts,.tsx --out-dir dist",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "typecheck": "tsc",
     "test": "jest .",
-    "validate": "npm run typecheck && npm run lint && npm run test && npm run build"
+    "validate": "npm-run-all --parallel typecheck lint test",
+    "webpack": "webpack",
+    "build": "npm-run-all --parallel validate webpack"
   },
   "author": "Håkon Underbakke",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
+    "@babel/plugin-transform-react-jsx": "^7.12.7",
     "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
     "@types/jest": "^26.0.17",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
@@ -23,9 +27,10 @@
     "eslint-config-prettier": "^7.0.0",
     "husky": "^4.3.5",
     "jest": "^26.6.3",
-    "typescript": "^4.1.2"
-  },
-  "dependencies": {
-    "@babel/preset-typescript": "^7.12.7"
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.1.2",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0"
   }
 }

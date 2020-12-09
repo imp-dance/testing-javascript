@@ -1,0 +1,1 @@
+export { validateArrayOfTypes } from "./verify";
